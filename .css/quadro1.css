@@ -1,0 +1,18 @@
+body{
+    background: rgb(151, 145, 90);
+    color: black;
+}
+
+
+ 
+.container { 
+    display: inline flex;
+}
+.container img{
+    width: 300px;
+    margin-right: 20px;
+}
+.container p{
+    width: 300px;
+
+}

@@ -1,0 +1,17 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: rgb(162, 211, 157);
+}
+.container{
+   font-size: large;
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   font-family: Arial, Helvetica, sans-serif;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translateX(-50%) translateY(-50%);
+}
+
