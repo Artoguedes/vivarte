@@ -3,24 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nome do Quadro - VIIVARTE</title>
+    <title>Independência ou Morte - VIIVARTE</title>
+    <link rel="stylesheet" href=".css/global.css">
+    <link rel="shortcut icon" href="img/logo_site__1_-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href=".css/quadro3.css">
+   
 </head>
 <body>
 
+<nav class="topnav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="img/logo_site__1_-removebg-preview.png" alt="VIIVARTE">
+        <span>VIIVARTE</span>
+      </a>
+      <div class="links">
+        <a href="galeria.html">Galeria</a>
+        <a href="contato.html">Contato</a>
+        <a class="btn-nav" href="login.html">Login</a>
+      </div>
+    </div>
+  </nav>
+
+    
+
     <header>
-        <h1>VIIVARTE -* Nome do Quadro Q Ainda nao decidi*</h1>
+        <h1>Independência ou Morte</h1>
     </header>
 
     <section>
-        <h2>Nome do Artista: <!--o nome do artista vai aq--></h2>
-        <img src="coloque-sua-imagem-do-quadro-aqui.jpg" alt="Nome do Quadro">
-        <p>História do Quadro: <!-- a história --></p>
+        <h2>Por Pedro Américo</h2>
+
+        <div class="container">
+        <img src="img/Captura de tela 2024-09-20 230324.png" alt="Independência ou Morte">
+        <p>O quadro Independência ou Morte, de Pedro Américo, é uma das mais famosas representações do momento histórico da Proclamação da Independência do Brasil. Pintado em 1888, ele retrata o episódio em que Dom Pedro I, às margens do rio Ipiranga, declara a independência do Brasil do Império Português. A cena é carregada de simbolismo, com Dom Pedro I levantando a espada e exclamando "Independência ou Morte!", enquanto ao fundo se veem paisagens e cavalos. O quadro transmite a ideia de força e bravura, com o Imperador representado de forma heroica, rodeado por um grupo de militares e personagens que reforçam a grandiosidade do evento. A pintura tem um tom épico, exaltando a figura de Dom Pedro I e sua ação decisiva para a emancipação do Brasil.</p>
     </section>
+
+    </div>
+    
+    <div class="bodycomment">
+        <div class="containercomment">
+           <div class="head">
+               <h1>Faça um comentario.</h1>
+               <div><span id="comment">0 </span>Comentários</div>
+               <div class="text">Nos dê seu feedback!</div>
+               <div class="comments"></div>
+               <div class="commentbox">
+               <img src="img/Captura de tela 2025-01-30 214940.png" alt="">
+        
+               <div class="content">
+               <p>Comentar como:</p>
+               
+               <div class="commentinput">
+                   <input type="text" value="anonimo" class="usuario">
+                   <input type="text" placeholder="entercomment" class="usercomment">
+                   <div class="buttons">
+                       <button type="submit" disabled id="publicar">publicar</button>
+                       <div class="notify">
+                           <input type="checkbox" class="notifyinput"> <span>Me notifique.</span>
+                       </div>
+                   </div>
+               </div>
+               </div> 
+               </div>
+               <p>Esse site é protegido por reCAPTCHA e pelo google <a href="">politicas de privacidade</a> e <a href="">termos de serviços.</a></p>
+           </div>
+        </div> 
+   </div>
+         <script>
+           "use strict";
+            const userId = {
+               name: null,
+               identity: null,
+               image: null,
+               massage: null,
+               date: null
+            }
+            const userComment = document.querySelector(".usercomment");
+            const publicarBtn = document.querySelector("#publicar");
+            const comments = document.querySelector(".comments");
+            const userName = document.querySelector(".usuario");
+   
+            userComment.addEventListener("input", e =>{
+               if(!userComment.value) {
+                   publicarBtn.setAttribute("disabled", "disabled");
+                   publicarBtn.classList.remove("abled")
+               }else {
+                   publicarBtn.removeAttribute("disabled");
+                   publicarBtn.classList.add("abled")
+               }
+            }
+        )
+   
+   
+            function addPost(){
+               console.log ("o botao funciona!")
+               if(!userComment.value) return;
+               userId.name = userName.value;
+               if(userId.name === "anonimo") {
+                   userId.idetity = false;
+                   userId.image = "img/Captura de tela 2025-01-30 214940.png";
+               } else {
+                   userId.identity = true;
+                   userId.image = "img/Captura de tela 2025-01-30 214940.png"
+               }
+   
+               userId.message = userComment.value;
+               userId.date = new Date().toLocaleString();
+               let published = 
+               `<div class="parents"> 
+                   <img src="${userId.image}">
+                   <div> 
+                       <p1>${userId.name}</p1>
+                       <p>${userId.message}</p>
+                       <div class="engagements"> <img src="img/like.png"><img src="img/share.png"> </div>
+                         <span class="date">${userId.date}</span>
+                       </div>
+                 </div>`;
+                   comments.innerHTML += published;
+                   userComment.value = "";
+            }
+   
+             publicarBtn.addEventListener("click", addPost)
+   
+         </script>
+
+
+<h3>Imersão sobre a arte </h4>
+    
+    <audio controls>
+        <source src="audio/audio-indepedencia-ou-morte.mp3" type="audio/mpeg">
+        <source src="audio/audio-indepedencia-ou-morte.mp3" type="audio/ogg">
+        <source src="audio/audio-indepedencia-ou-morte.mp3" type="audio/wav">
+    </audio>
+    
+<details>
+    <summary>Visite o museu!</summary>
+    
+    <h4>Museu do Ipiranga</h4>
+
+    <section class="title"> 
+        <p>O Museu do Ipiranga, oficialmente chamado Museu Paulista da Universidade de São Paulo (USP), é um dos museus mais emblemáticos do Brasil, localizado no bairro do Ipiranga, em São Paulo. Inaugurado em 1895, o museu está instalado em um grandioso palácio construído para abrigar a exposição do Centenário da Independência do Brasil. O edifício, de estilo neoclássico, está situado no Parque da Independência, que é um local histórico, pois foi onde Dom Pedro I proclamou a independência do Brasil em 1822.
+
+            O acervo do Museu do Ipiranga é vasto e contempla a história do Brasil desde o período colonial até o século XIX, com destaque para a Independência do Brasil. O museu possui uma rica coleção de arte, incluindo pinturas, mobiliário, objetos históricos e documentos que ilustram o processo de formação da nação brasileira. A famosa pintura Independência ou Morte, de Pedro Américo, é uma das principais obras do acervo.
+            
+            Além do acervo permanente, o museu realiza exposições temporárias e atividades culturais, educacionais e de preservação do patrimônio histórico, desempenhando um papel fundamental na divulgação da história e da cultura brasileira. Em 2022, o museu passou por uma grande reforma, modernizando suas instalações e ampliando sua capacidade de interação com o público.
+            </p>
+        <img src="img/Museu-do-Ipiranga-HF-SP-5-webp._Olho10689.webp" alt="Museu do Ipiranga">
+    </section>
+
+
+    <section class="video-container">
+        <video controls>
+            <source src="video/ipatinga.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+
+        <video controls>
+            <source src="video/ipatinga2.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </section>
+
+</details>
+
+
 
     <footer>
         <p>&copy; 2024 VIIVARTE. Todos os direitos reservados.</p>
     </footer>
 
+
+   
 </body>
 </html>

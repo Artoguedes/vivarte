@@ -1,0 +1,46 @@
+/* VIIVARTE - Página de museu */
+.page{
+  padding: 26px 0 0;
+}
+.page h1{
+  font-size: 34px;
+  color:#124d2b;
+  margin-bottom: 8px;
+}
+.page .subtitle{
+  opacity:.85;
+  margin-bottom:16px;
+}
+.hero{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.hero img{
+  width:100%;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow: rgba(0,0,0,.10) 0px 10px 24px;
+}
+.hero .text{
+  background: rgba(18,77,43,.06);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:16px;
+  padding:16px;
+}
+.video-grid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:14px;
+}
+video{
+  width:100%;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#000;
+}
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr}
+}

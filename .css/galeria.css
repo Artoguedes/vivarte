@@ -1,47 +1,65 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+/* VIIVARTE - Galeria */
+body{background:#f6f3ea;}
+
+.galeria-hero{
+  padding: 28px 0 10px;
 }
- .main {
-    display: flex;
-    justify-content: center;
- }
- .card {
-    margin: 50px;
-    background-color: rgba(0, 128, 0, 0.368);
-    color: black;
-    width: 400px;
-    height: 570px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    text-align: center;
-    font-size: 14px;
- }
-.card>h1 {
-    font-size: 25px;
-    padding-top: 10px;
+.galeria-hero h1{
+  font-size: 34px;
+  color:#124d2b;
+  margin-bottom:6px;
+}
+.galeria-hero p{
+  color:#2e2e2e;
+  max-width: 70ch;
 }
 
-.card>p {
-    font-size: 15px;
-    padding: 20px 20px;
-}  
+.section-title{
+  margin-top: 26px;
+  font-size: 20px;
+  font-weight: 800;
+  color:#124d2b;
+}
 
-.btn {
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    background-color: rgba(172, 255, 47, 0.485);
-    color: #ffff;
-    border-radius: 10px;
-    cursor: pointer;
-}  
+.grid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap:18px;
+}
 
-
-
- .card>img {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
- }
+.card{
+  background: rgba(18,77,43,.08);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  overflow:hidden;
+  box-shadow: rgba(0,0,0,.06) 0px 10px 24px;
+  transition: .2s ease;
+  cursor:pointer;
+}
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: rgba(0,0,0,.12) 0px 14px 30px;
+}
+.card img{
+  width:100%;
+  height: 160px;
+  object-fit: cover;
+  display:block;
+}
+.card .body{
+  padding: 14px 14px 16px;
+}
+.card h3{
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.card p{
+  font-size: 14px;
+  opacity: .85;
+  margin-bottom: 12px;
+}
+.card .cta{
+  display:flex;
+  justify-content:flex-start;
+}

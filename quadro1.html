@@ -4,16 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criança morta - VIIVARTE</title>
+    <link rel="stylesheet" href=".css/global.css">
     <link rel="stylesheet" href=".css/quadro1.css">
+    <link rel="shortcut icon" href="img/logo_site__1_-removebg-preview.png" type="image/x-icon">
+    
 </head>
 <body>
+
+<nav class="topnav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="img/logo_site__1_-removebg-preview.png" alt="VIIVARTE">
+        <span>VIIVARTE</span>
+      </a>
+      <div class="links">
+        <a href="galeria.html">Galeria</a>
+        <a href="contato.html">Contato</a>
+        <a class="btn-nav" href="login.html">Login</a>
+      </div>
+    </div>
+  </nav>
+
 
     <header>
         <h1>Criança Morta</h1>
     </header>
 
     <section class="corpo">
-        <h2>Candido Portinari</h2>
+        <h2>Por Candido Portinari</h2>
 
         
 
@@ -22,22 +40,155 @@
         
 
         
-        <p>A obra "Criança Morta", de Cândido Portinari, foi pintada em 1944 e é uma das mais tocantes do artista. Essa pintura transmite uma visão intensa e angustiante da morte de uma criança, refletindo as condições sociais e a tragédia de vidas marcadas pela pobreza e pela violência. A cena retrata uma criança morta, com seu corpo estendido, rodeada por figuras humanas que demonstram sofrimento e luto.
+        <p class="textoObra">A obra "Criança Morta", de Cândido Portinari, foi pintada em 1944 e é uma das mais tocantes do artista. Essa pintura transmite uma visão intensa e angustiante da morte de uma criança, refletindo as condições sociais e a tragédia de vidas marcadas pela pobreza e pela violência. A cena retrata uma criança morta, com seu corpo estendido, rodeada por figuras humanas que demonstram sofrimento e luto.
 
             Portinari, conhecido por seu trabalho com temas sociais e sua crítica às condições de vida dos mais desfavorecidos, utiliza essa obra para refletir sobre o impacto da miséria, da guerra e das desigualdades sociais. A pintura tem um tom sombrio e dramático, com uma paleta de cores mais escuras, o que acentua o caráter trágico da cena.
             
             Através dessa obra, Portinari também se aprofunda no campo da emoção humana, buscando transmitir o sofrimento coletivo. A "Criança Morta" faz parte de sua produção mais voltada para a denúncia social e é considerada uma das peças chave do seu estilo expressionista, no qual ele usa formas e cores intensas para provocar uma reação visceral do espectador.
              </p> 
         </div> 
+        
+    </section>
 
-    
+
+
+
+    <div class="bodycomment">
+        <div class="containercomment">
+           <div class="head">
+               <h1>Faça um comentario.</h1>
+               <div><span id="comment">0 </span>Comentários</div>
+               <div class="text">Nos dê seu feedback!</div>
+               <div class="comments"></div>
+               <div class="commentbox">
+               <img class="imgComent" src="img/Captura de tela 2025-01-30 214940.png" alt="">
+        
+               <div class="content">
+               <p>Comentar como:</p>
+               
+               <div class="commentinput">
+                   <input type="text" value="anonimo" class="usuario">
+                   <input type="text" placeholder="entercomment" class="usercomment">
+                   <div class="buttons">
+                       <button type="submit" disabled id="publicar">publicar</button>
+                       <div class="notify">
+                           <input type="checkbox" class="notifyinput"> <span>Me notifique.</span>
+                       </div>
+                   </div>
+               </div>
+               </div> 
+               </div>
+               <p>Esse site é protegido por reCAPTCHA e pelo google <a href="">politicas de privacidade</a> e <a href="">termos de serviços.</a></p>
+           </div>
+        </div> 
+   </div>
+         <script>
+           "use strict";
+            const userId = {
+               name: null,
+               identity: null,
+               image: null,
+               massage: null,
+               date: null
+            }
+            const userComment = document.querySelector(".usercomment");
+            const publicarBtn = document.querySelector("#publicar");
+            const comments = document.querySelector(".comments");
+            const userName = document.querySelector(".usuario");
+   
+            userComment.addEventListener("input", e =>{
+               if(!userComment.value) {
+                   publicarBtn.setAttribute("disabled", "disabled");
+                   publicarBtn.classList.remove("abled")
+               }else {
+                   publicarBtn.removeAttribute("disabled");
+                   publicarBtn.classList.add("abled")
+               }
+            }
+        )
+   
+   
+            function addPost(){
+               console.log ("o botao funciona!")
+               if(!userComment.value) return;
+               userId.name = userName.value;
+               if(userId.name === "anonimo") {
+                   userId.idetity = false;
+                   userId.image = "img/Captura de tela 2025-01-30 214940.png";
+               } else {
+                   userId.identity = true;
+                   userId.image = "img/Captura de tela 2025-01-30 214940.png"
+               }
+   
+               userId.message = userComment.value;
+               userId.date = new Date().toLocaleString();
+               let published = 
+               `<div class="parents"> 
+                   <img src="${userId.image}">
+                   <div> 
+                       <p1>${userId.name}</p1>
+                       <p>${userId.message}</p>
+                       <div class="engagements"> <img src="img/like.png"><img src="img/share.png"> </div>
+                         <span class="date">${userId.date}</span>
+                       </div>
+                 </div>`;
+                   comments.innerHTML += published;
+                   userComment.value = "";
+            }
+   
+             publicarBtn.addEventListener("click", addPost)
+   
+         </script>  
         
 
+<h3>Imersão sobre a arte.</h4>
+    
+    <audio controls style="height: 30px;">
+        <source src="audio/audio-crianca-morta.mp3" type="audio/mpeg">
+        <source src="audio/audio-crianca-morta.mp3" type="audio/ogg">
+        <source src="audio/audio-crianca-morta.mp3" type="audio/wav">
+    </audio>
+    
+<details>
+    <summary>Visite o museu!</summary>
+    
+    <h4>Museu de arte de São Paulo</h4>
+
+    <section class="title"> 
+        <p>O Museu de Arte de São Paulo (MASP) é um dos mais importantes e renomados museus de arte da América Latina. Localizado na Avenida Paulista, no coração de São Paulo, é conhecido por sua arquitetura icônica, projetada por Lina Bo Bardi, com destaque para o imponente vão livre de 74 metros.
+
+            O MASP abriga uma coleção diversificada e de relevância internacional, com obras que vão de mestres europeus, como Van Gogh, Monet e Rembrandt, a importantes artistas brasileiros e africanos, celebrando a pluralidade cultural. Além das exposições permanentes e temporárias, o museu oferece uma programação rica em eventos culturais, palestras e atividades educativas.
+            
+            O espaço é um ponto de encontro para amantes da arte e visitantes que desejam explorar a história e a cultura de forma dinâmica e acessível.</p>
+        <img src="img/masp.jpg" alt="Museu de Arte de São Paulo (MASP)">
     </section>
+
+
+    <section class="video-container">
+        <video controls>
+            <source src="video/masp1.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+
+        <video controls>
+            <source src="video/masp2.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </section>
+
+</details>
+
+
+</body>
+
+
+
+
+    
 
     <footer>
         <p>&copy; 2024 VIIVARTE. Todos os direitos reservados.</p>
     </footer>
 
-</body>
+
 </html>

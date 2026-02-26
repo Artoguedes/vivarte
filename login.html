@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/global.css">
     <link rel="stylesheet" href=".css/login.css">
+    <link rel="shortcut icon" href="img/logo_site__1_-removebg-preview.png" type="image/x-icon">
     <title>Login</title>
 </head>
 
 
 <body>
+
+<nav class="topnav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="img/logo_site__1_-removebg-preview.png" alt="VIIVARTE">
+        <span>VIIVARTE</span>
+      </a>
+      <div class="links">
+        <a href="galeria.html">Galeria</a>
+        <a href="contato.html">Contato</a>
+        <a class="btn-nav" href="login.html">Login</a>
+      </div>
+    </div>
+  </nav>
+
 <div class="container-login"> 
 <div class="img-box">
     <img src="img/Captura de tela 2024-09-19 171215.png">
@@ -39,12 +56,77 @@
             <p>Nao tem uma conta? <a href="#"></a>Inscrever-se</p>
            </div>
         </form>
-        <!--parte logar com outros apps-->
- <h3>Logar com</h3>
-<ul class="ul"> 
-    <li><img src="img/google.png"></li>
-    <li><img src="img/facebook1).jpg"></li>
-</ul>
+  
+ 
+<h3>Logar com</h3>
+
+<div class="social-login">
+  <button type="button" id="googleBtn" class="social-btn" title="Entrar com Google">
+    <img src="img/google.png" alt="Google"> <span>Google</span>
+  </button>
+
+  <button type="button" class="social-btn" disabled title="Em breve">
+    <img src="img/facebook1).jpg" alt="Facebook"> <span>Facebook (em breve)</span>
+  </button>
+</div>
+
+<p id="authStatus" style="margin-top:10px; font-size:14px; opacity:.85"></p>
+
+<script type="module">
+
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+  const firebaseConfig = {
+    // apiKey: "...",
+    // authDomain: "...",
+    // projectId: "...",
+    // appId: "..."
+  };
+
+  const hasConfig = Object.keys(firebaseConfig).length > 0;
+
+  const statusEl = document.getElementById("authStatus");
+  const googleBtn = document.getElementById("googleBtn");
+
+  function setStatus(msg){
+    statusEl.textContent = msg;
+  }
+
+  if(!hasConfig){
+    setStatus("Para ativar o login com Google, configure o Firebase (veja o comentário no código).");
+    googleBtn.addEventListener("click", () => alert("Ainda nao temos um dominio do site, tente mais novamente mais tarde   :("))
+  } else {
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    googleBtn.addEventListener("click", async () => {
+      try{
+        await signInWithPopup(auth, provider);
+      }catch(err){
+        console.error(err);
+        alert("Erro ao entrar com Google. Veja o console (F12).");
+      }
+    });
+
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+        setStatus(`Logado como: ${user.displayName || user.email}`);
+        googleBtn.innerHTML = "Sair";
+        googleBtn.onclick = async () => {
+          await signOut(auth);
+          location.reload();
+        };
+      } else {
+        setStatus("Você não está logado.");
+        googleBtn.innerHTML = '<img src="img/google.png" alt="Google"> <span>Google</span>';
+      }
+    });
+  }
+</script>
+
     </div>
 </div>
 </body>

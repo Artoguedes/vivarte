@@ -1,0 +1,38 @@
+/* VIIVARTE - Quadro 4 */
+body{background:#f6f3ea;}
+.page{
+  padding: 26px 0 0;
+}
+.page h1{
+  font-size: 34px;
+  color:#124d2b;
+  margin-bottom: 6px;
+}
+.page h2{
+  font-size: 18px;
+  opacity:.85;
+  margin-bottom: 14px;
+}
+.content{
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:18px;
+  align-items:start;
+}
+.content img{
+  width:100%;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow: rgba(0,0,0,.10) 0px 10px 24px;
+}
+.box{
+  background: rgba(18,77,43,.06);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:16px;
+  padding:16px;
+}
+.box p{margin-bottom:12px;text-align:justify}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+@media(max-width:850px){
+  .content{grid-template-columns:1fr}
+}
