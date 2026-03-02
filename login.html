@@ -96,7 +96,7 @@
 
   if(!hasConfig){
     setStatus("Para ativar o login com Google, configure o Firebase (veja o comentário no código).");
-    googleBtn.addEventListener("click", () => alert("Ainda não temos um dominio do site, tente mais novamente mais tarde   :("))
+    googleBtn.addEventListener("click", () => alert("Ainda nao temos um dominio do site, tente mais novamente mais tarde   :("))
   } else {
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
